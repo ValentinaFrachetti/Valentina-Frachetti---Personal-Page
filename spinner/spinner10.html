@@ -1,0 +1,30 @@
+<!-- Disegnare un quadrato che al click si sposti da un angolo all'altro dello schermo seguendo una traiettoria quadrata-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="spinner10.css">
+</head>
+
+<body>
+  <div id="quadrato" class="left"></div> <!--metto la classe, cioè la posizione di partenza. Creo il quadrato con un div che definisco nel CSS-->
+
+<!--$("#quadrato") il dollaro è un selettore
+uso dei metodi (?) e posso, per esempio, rimuovere delle classi
+
+if(condizione) {istruzioni} avviene un'azione solo se si verifica la condizione (che è vera o falsa)
+es. if(3 > 2) {istruzioni}
+
+in javascript if(condizione) {istruzioni} else {altre istruzioni} se la condizione è vera esegue le prime istruzioni, se è falsa esegue le seconde
+
+è interessante usarlo quando la condizione varia nel tempo
+es. function quando_clicki() {
+  if( $("#quadrato").hasClass("left")) {vai_a_destra()} else {vai_a_sinistra()}
+}
+
+quando voglio caricare il quadrato.js devo caricarlo in fondo a tutto
+-->
+<script src="jQuery.js"></script> <!-- metterlo sempre!! -->
+<script src="spinner10.js"></script> <!-- il JavaScript va inserito appena prima del tag di chiusura </body> -->
+</body>
+</html>
