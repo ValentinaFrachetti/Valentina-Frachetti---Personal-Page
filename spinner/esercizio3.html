@@ -1,0 +1,95 @@
+<!-- Disegnare un quadrato che al click si sposti da un angolo all'altro dello schermo seguendo una traiettoria quadrata-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  #quadrato {
+    position: absolute; /*decido la posizione dell'oggetto e le sue dimensioni*/
+    width: 30px;
+    height: 30px;
+    background-color: #2c98f0;
+  }
+
+  #quadrato.left { /*se metto .left devo mettere la class nel file html*/
+    transition: 1s all;
+    top: 30vh; /*vh è view port*/
+    left: 30vw;
+  }
+
+  #quadrato.right {
+    transition: 1s all;
+    top: 30vh;
+    left: 60vw;
+  }
+
+  #quadrato.bottom-right {
+    transition: 1s all;
+    top: 60vh;
+    left: 60vw;
+  }
+
+  #quadrato.bottom-left {
+    transition: 1s all;
+    top: 60vh;
+    left: 30vw;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="quadrato" class="left"></div> <!--metto la classe, cioè la posizione di partenza. Creo il quadrato con un div che definisco nel CSS-->
+
+<!--$("#quadrato") il dollaro è un selettore
+uso dei metodi (?) e posso, per esempio, rimuovere delle classi
+
+if(condizione) {istruzioni} avviene un'azione solo se si verifica la condizione (che è vera o falsa)
+es. if(3 > 2) {istruzioni}
+
+in javascript if(condizione) {istruzioni} else {altre istruzioni} se la condizione è vera esegue le prime istruzioni, se è falsa esegue le seconde
+
+è interessante usarlo quando la condizione varia nel tempo
+es. function quando_clicki() {
+  if( $("#quadrato").hasClass("left")) {vai_a_destra()} else {vai_a_sinistra()}
+}
+
+quando voglio caricare il quadrato.js devo caricarlo in fondo a tutto
+-->
+<script src="jQuery.js"></script> <!-- metterlo sempre!! -->
+<script>
+function vai_a_destra() { /* definisco il movimento */
+  $("#quadrato").removeClass("left"); /* tolgo una classe */
+  $("#quadrato").addClass("right"); /* aggiungo la classe che determina la posizione finale */
+}
+
+function vai_sotto_a_destra() {
+  $("#quadrato").removeClass("right");
+  $("#quadrato").addClass("bottom-right");
+}
+
+function vai_sotto_a_sinistra() {
+  $("#quadrato").removeClass("bottom-right");
+  $("#quadrato").addClass("bottom-left");
+}
+
+function vai_a_inizio() {
+  $("#quadrato").removeClass("bottom-left");
+  $("#quadrato").addClass("left");
+}
+
+function quando_click() { /* devo definire che il movimento del quadrato avviene al click */
+if($("#quadrato").hasClass("left")) {
+    vai_a_destra()
+  } else if($("#quadrato").hasClass("right")){
+    vai_sotto_a_destra()
+  } else if($("#quadrato").hasClass("bottom-right")) {
+    vai_sotto_a_sinistra()
+  } else if($("#quadrato").hasClass("bottom-left")){
+    vai_a_inizio()
+  }
+}
+
+$("#quadrato").on("click", quando_click);
+</script> <!-- il JavaScript va inserito appena prima del tag di chiusura </body> -->
+</body>
+</html>
