@@ -50,14 +50,14 @@ body{
 #container{
   width:90%;
   max-width:700px;
-  margin:1em auto;
   position:relative;
+  margin: 100px auto;
 }
 
 #spinner2{
   position:absolute;
   top:80px;
-  margin-left:-24px;
+  margin: 100px auto;
 }
 
 #spinner2{
