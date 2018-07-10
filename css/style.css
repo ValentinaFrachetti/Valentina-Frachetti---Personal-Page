@@ -269,7 +269,8 @@ h1, h2, h3, h4, h5, h6 {
 .work,
 .about,
 .contact,
-.spinners {
+.spinners,
+.language {
   padding-top: 4em;
   padding-bottom: 9em;
   clear: both;
@@ -280,7 +281,8 @@ h1, h2, h3, h4, h5, h6 {
     .work,
     .about,
     .contact,
-    .spinners {
+    .spinners,
+    .language {
       padding-top: 5em;
       padding-bottom: 8em; } }
 
