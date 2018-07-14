@@ -1,10 +1,5 @@
 <html>
 <head>
-
-    <link rel="stylesheet" href="index.css">
-
-    <title>Pallina</title>
-
   </head>
 
   <body>
@@ -13,13 +8,13 @@
 
 <style>
 
-#palla { /*definisco le caratteristiche della pallina e la posizione*/
+#palla {
 	background-color: #2c98f0;
 	width: 100px;
 	height: 100px;
 	position: absolute;
 	border-radius: 50%;
-	top: 50%; /*è centrata nella pagina*/
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
@@ -30,9 +25,9 @@
 p = document.getElementById("palla")
 stato = 0
 
-function cambiacolore() { /*dò il nome alla funzione*/
-  if(stato == 0) { /*stato=0 definisce che è l'inizio dell'animazione*/
-    p.style.backgroundColor = "#0066BA" /*modifica il colore della pallina*/
+function cambiacolore() {
+  if(stato == 0) {
+    p.style.backgroundColor = "#0066BA"
     stato = 1
   } else {
     p.remove()
@@ -40,7 +35,7 @@ function cambiacolore() { /*dò il nome alla funzione*/
   }
 }
 
-p.onclick = cambiacolore /*l'animazione ha inizio al click del mouse*/
+p.onclick = cambiacolore
 
 </script>
 </body>

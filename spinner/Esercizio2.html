@@ -8,16 +8,16 @@
 <html>
 <head>
   <style>
-  .box { /*definisco le caratteristiche del box quadrato che contiene i quadratini colorati*/
+  .box {
     width: 250px;
     height: 250px;
-    position: absolute; /*centrato nella pagina*/
+    position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%); /*translate è lo spostamento*/
+    transform: translate(-50%, -50%);
   }
 
-  #q1 { /*le dimensioni sono già state definite, definisco solo i quattro colori diversi*/
+  #q1 {
   background-color: red;
   }
   #q2 {
@@ -30,34 +30,34 @@
   background-color: yellow;
   }
 
-  .quadrato { /*Tutti i 4 quadrati hanno questa classe e quindi la stessa dimensione*/
+  .quadrato {
   width: 10px;
   height: 10px;
   position: absolute;
   }
 
-  .sinistra { /*Il primo e il secondo quadrato hanno questa classe*/
-  left: 0; /*essendo contenuti nel box più grande, metto 0 ma non vanno in fondo alla pagina ma solo in fondo al box*/
+  .sinistra {
+  left: 0;
   }
 
-  .alto { /*il primo e il secondo quadrato hanno questa classe*/
+  .alto {
   top: 0;
   }
 
-  .basso { /*Il terzo e il quarto quadrato hanno questa classe*/
+  .basso {
     bottom: 0;
   }
 
-  .destra { /*Il primo e il quarto quadrato hanno questa classe*/
+  .destra {
     right: 0;
   }
 
-  @keyframes spin { /*definisco la rotazione*/
-    	from{transform: translate(-50%,-50%) rotate(0);} /*translate è lo spostamento, rotate è la rotazione*/
-  to{transform: translate(-50%,-50%)rotate(360deg);} /*la rotazione avviene dopo lo spostamento quindi*/
+  @keyframes spin {
+    	from{transform: translate(-50%,-50%) rotate(0);}
+  to{transform: translate(-50%,-50%)rotate(360deg);}
   }
 
-  .rotate-orario { /*rotazione in senso orario di 1 secondo con ripetizione continua (infinite)*/
+  .rotate-orario {
     animation: spin 1s infinite;
   }
   </style>
@@ -65,8 +65,8 @@
 
 <body>
 
-<div class="box"> <!--Metto un div quadrato che contenga gli altri-->
-  <div id="q1" class="quadrato sinistra alto"></div> <!--Assegno 3 classi diverse. quadrato è comune a tutti-->
+<div class="box">
+  <div id="q1" class="quadrato sinistra alto"></div>
 <div id="q2" class="quadrato sinistra basso"></div>
 <div id="q3" class="quadrato destra alto"></div>
 <div id="q4" class="quadrato destra basso"></div>
@@ -74,29 +74,29 @@
 
 <script src="jQuery.js"></script>
 <script>
-function al_click() { /*definisco quello che deve succedere: scambio di posizione e poi rotazione*/
+function al_click() {
   if($("#q3").hasClass("sinistra"))
   rotazione();
   else if($("#q3").hasClass("destra"))
     inverti();
 }
 
-function inverti() { /*definisco inverti (quello che c'era sopra)*/
+function inverti() {
   $("#q1").removeClass("sinistra")
   $("#q1").addClass("destra")
   $("#q3").removeClass("destra")
   $("#q3").addClass("sinistra")
 }
 
-function rotazione() { /*definisco rotazione (quello che c'è sopra)*/
-  $(".box").addClass("rotate-orario") /*rotate orario è definito nel css*/
+function rotazione() {
+  $(".box").addClass("rotate-orario")
 }
-function stop() { /*definisco stop che avviene solo quando passo con il mouse sopra uno dei quadrati*/
+function stop() {
   $(".box").removeClass("rotate-orario")
 }
 
-$("#q1").click(al_click); /*inverti e spin devono avvenire con il click*/
-$("#q2").hover(stop); /*lo stop avviene al passaggio del mouse sopra uno dei quadrati*/
+$("#q1").click(al_click);
+$("#q2").hover(stop); 
 $("#q3").hover(stop);
 $("#q4").hover(stop);
 </script>

@@ -1,19 +1,19 @@
 <html>
 <style>
-.sk-circle {
+.cerchio {
   margin: 100px auto;
   width: 40px;
   height: 40px;
   position: relative;
 }
-.sk-circle .sk-child {
+.cerchio .child {
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0;
   top: 0;
 }
-.sk-circle .sk-child:before {
+.cerchio .child:before {
   content: '';
   display: block;
   margin: 0 auto;
@@ -21,119 +21,81 @@
   height: 15%;
   background-color: #2c98f0;
   border-radius: 100%;
-  -webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
-          animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
+          animation: cerchiodopo 1.2s infinite ease-in-out both;
 }
-.sk-circle .sk-circle2 {
-  -webkit-transform: rotate(30deg);
-      -ms-transform: rotate(30deg);
+.cerchio .cerchio2 {
           transform: rotate(30deg); }
-.sk-circle .sk-circle3 {
-  -webkit-transform: rotate(60deg);
-      -ms-transform: rotate(60deg);
+.cerchio .cerchio3 {
           transform: rotate(60deg); }
-.sk-circle .sk-circle4 {
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
+.cerchio .cerchio4 {
           transform: rotate(90deg); }
-.sk-circle .sk-circle5 {
-  -webkit-transform: rotate(120deg);
-      -ms-transform: rotate(120deg);
+.cerchio .cerchio5 {
           transform: rotate(120deg); }
-.sk-circle .sk-circle6 {
-  -webkit-transform: rotate(150deg);
-      -ms-transform: rotate(150deg);
+.cerchio .cerchio6 {
           transform: rotate(150deg); }
-.sk-circle .sk-circle7 {
-  -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
+.cerchio .cerchio7 {
           transform: rotate(180deg); }
-.sk-circle .sk-circle8 {
-  -webkit-transform: rotate(210deg);
-      -ms-transform: rotate(210deg);
+.cerchio .cerchio8 {
           transform: rotate(210deg); }
-.sk-circle .sk-circle9 {
-  -webkit-transform: rotate(240deg);
-      -ms-transform: rotate(240deg);
+.cerchio .cerchio9 {
           transform: rotate(240deg); }
-.sk-circle .sk-circle10 {
-  -webkit-transform: rotate(270deg);
-      -ms-transform: rotate(270deg);
+.cerchio .cerchio10 {
           transform: rotate(270deg); }
-.sk-circle .sk-circle11 {
-  -webkit-transform: rotate(300deg);
-      -ms-transform: rotate(300deg);
+.cerchio .cerchio11 {
           transform: rotate(300deg); }
-.sk-circle .sk-circle12 {
-  -webkit-transform: rotate(330deg);
-      -ms-transform: rotate(330deg);
+.cerchio .cerchio12 {
           transform: rotate(330deg); }
-.sk-circle .sk-circle2:before {
-  -webkit-animation-delay: -1.1s;
+.cerchio .cerchio2:before {
           animation-delay: -1.1s; }
-.sk-circle .sk-circle3:before {
-  -webkit-animation-delay: -1s;
+.cerchio .cerchio3:before {
           animation-delay: -1s; }
-.sk-circle .sk-circle4:before {
-  -webkit-animation-delay: -0.9s;
+.cerchio .cerchio4:before {
           animation-delay: -0.9s; }
-.sk-circle .sk-circle5:before {
-  -webkit-animation-delay: -0.8s;
+.ccerchio .cerchio5:before {
           animation-delay: -0.8s; }
-.sk-circle .sk-circle6:before {
-  -webkit-animation-delay: -0.7s;
+.cerchio .cerchio6:before {
           animation-delay: -0.7s; }
-.sk-circle .sk-circle7:before {
-  -webkit-animation-delay: -0.6s;
+.cerchio .cerchio7:before {
           animation-delay: -0.6s; }
-.sk-circle .sk-circle8:before {
-  -webkit-animation-delay: -0.5s;
+.cerchio .cerchio8:before {
           animation-delay: -0.5s; }
-.sk-circle .sk-circle9:before {
-  -webkit-animation-delay: -0.4s;
+.cerchio .cerchio9:before {
           animation-delay: -0.4s; }
-.sk-circle .sk-circle10:before {
-  -webkit-animation-delay: -0.3s;
+.cerchio .cerchio10:before {
           animation-delay: -0.3s; }
-.sk-circle .sk-circle11:before {
-  -webkit-animation-delay: -0.2s;
+.cerchio .cerchio11:before {
           animation-delay: -0.2s; }
-.sk-circle .sk-circle12:before {
-  -webkit-animation-delay: -0.1s;
+.cerchio .cerchio12:before {
           animation-delay: -0.1s; }
 
-@-webkit-keyframes sk-circleBounceDelay {
+@-webkit-keyframes cerchiodopo {
   0%, 80%, 100% {
-    -webkit-transform: scale(0);
             transform: scale(0);
   } 40% {
-    -webkit-transform: scale(1);
             transform: scale(1);
   }
 }
 
-@keyframes sk-circleBounceDelay {
+@keyframes cerchiodopo {
   0%, 80%, 100% {
-    -webkit-transform: scale(0);
             transform: scale(0);
   } 40% {
-    -webkit-transform: scale(1);
             transform: scale(1);
   }
 }
 </style>
-<div class="sk-circle">
-  <div class="sk-circle1 sk-child"></div>
-  <div class="sk-circle2 sk-child"></div>
-  <div class="sk-circle3 sk-child"></div>
-  <div class="sk-circle4 sk-child"></div>
-  <div class="sk-circle5 sk-child"></div>
-  <div class="sk-circle6 sk-child"></div>
-  <div class="sk-circle7 sk-child"></div>
-  <div class="sk-circle8 sk-child"></div>
-  <div class="sk-circle9 sk-child"></div>
-  <div class="sk-circle10 sk-child"></div>
-  <div class="sk-circle11 sk-child"></div>
-  <div class="sk-circle12 sk-child"></div>
+<div class="cerchio">
+  <div class="cerchio1 child"></div>
+  <div class="cerchio2 child"></div>
+  <div class="cerchio3 child"></div>
+  <div class="cerchio4 child"></div>
+  <div class="cerchio5 child"></div>
+  <div class="cerchio6 child"></div>
+  <div class="cerchio7 child"></div>
+  <div class="cerchio8 child"></div>
+  <div class="cerchio9 child"></div>
+  <div class="cerchio10 child"></div>
+  <div class="cerchio11 child"></div>
+  <div class="cerchio12 child"></div>
 </div>
 </html>

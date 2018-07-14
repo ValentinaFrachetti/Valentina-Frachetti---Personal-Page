@@ -1,10 +1,9 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
-    <title></title>
-    <script src="jquery.min.js"></script>
+    <script src="jQuery.js"></script>
     <style>
         #stella {
-            background-color: yellow;
+            background-color: #2c98f0;
             width: 50px; height: 50px;
             position: absolute;
             top: 50%; left: 50%;
@@ -12,7 +11,7 @@
             border-radius: 50%;
         }
         #blu {
-            background-color: blue;
+            background-color: #008CFF;
             width: 40px; height: 40px;
             position: absolute;
             top:50%; right: 0;
@@ -20,7 +19,7 @@
         }
 
         #rosso{
-            background-color: red;
+            background-color: #0066BA;
             width: 40px; height: 40px;
             position: absolute;
             top:50%; right: 0;
@@ -88,7 +87,6 @@
     $("#stella").on("click", function() {
 
         if(stato == 0) {
-            // devo andare nello stato 1, in cui il pianeta blu gira
             $("#quadratoceleste").addClass("spinning");
             stato = 1;
         } else if(stato == 1) {

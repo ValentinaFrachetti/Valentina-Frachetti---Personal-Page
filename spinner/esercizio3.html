@@ -5,15 +5,15 @@
 <head>
   <style>
   #quadrato {
-    position: absolute; /*decido la posizione dell'oggetto e le sue dimensioni*/
+    position: absolute;
     width: 30px;
     height: 30px;
     background-color: #2c98f0;
   }
 
-  #quadrato.left { /*se metto .left devo mettere la class nel file html*/
+  #quadrato.left {
     transition: 1s all;
-    top: 30vh; /*vh è view port*/
+    top: 30vh;
     left: 30vw;
   }
 
@@ -38,28 +38,13 @@
 </head>
 
 <body>
-  <div id="quadrato" class="left"></div> <!--metto la classe, cioè la posizione di partenza. Creo il quadrato con un div che definisco nel CSS-->
+  <div id="quadrato" class="left"></div>
 
-<!--$("#quadrato") il dollaro è un selettore
-uso dei metodi (?) e posso, per esempio, rimuovere delle classi
-
-if(condizione) {istruzioni} avviene un'azione solo se si verifica la condizione (che è vera o falsa)
-es. if(3 > 2) {istruzioni}
-
-in javascript if(condizione) {istruzioni} else {altre istruzioni} se la condizione è vera esegue le prime istruzioni, se è falsa esegue le seconde
-
-è interessante usarlo quando la condizione varia nel tempo
-es. function quando_clicki() {
-  if( $("#quadrato").hasClass("left")) {vai_a_destra()} else {vai_a_sinistra()}
-}
-
-quando voglio caricare il quadrato.js devo caricarlo in fondo a tutto
--->
-<script src="jQuery.js"></script> <!-- metterlo sempre!! -->
+<script src="jQuery.js"></script>
 <script>
-function vai_a_destra() { /* definisco il movimento */
-  $("#quadrato").removeClass("left"); /* tolgo una classe */
-  $("#quadrato").addClass("right"); /* aggiungo la classe che determina la posizione finale */
+function vai_a_destra() {
+  $("#quadrato").removeClass("left");
+  $("#quadrato").addClass("right");
 }
 
 function vai_sotto_a_destra() {
@@ -77,7 +62,7 @@ function vai_a_inizio() {
   $("#quadrato").addClass("left");
 }
 
-function quando_click() { /* devo definire che il movimento del quadrato avviene al click */
+function quando_click() {
 if($("#quadrato").hasClass("left")) {
     vai_a_destra()
   } else if($("#quadrato").hasClass("right")){
@@ -90,6 +75,6 @@ if($("#quadrato").hasClass("left")) {
 }
 
 $("#quadrato").on("click", quando_click);
-</script> <!-- il JavaScript va inserito appena prima del tag di chiusura </body> -->
+</script>
 </body>
 </html>
