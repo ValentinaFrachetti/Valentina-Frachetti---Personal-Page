@@ -1,0 +1,134 @@
+<!--1. Sono presenti, ai vertici di un quadrato immaginario centrato nella pagina, quattro quadrati di colori diversi  (1pt)
+2. Cliccando sul quadrato in alto a sinistra, i due quadrati in alto si scambiano posizione (1pt)
+3. Cliccando sul quadrato in alto a destra (dopo lo scambio, cioè quello che prima era in alto a sinistra), i quadrati cominciano a girare in tondo, intorno centro dello schermo, al ritmo di un giro al secondo 1pt
+4. Passando il mouse su uno qualsiasi dei quadrati, questi si fermano (2pt)
+-->
+<html>
+<head>
+  <script src="jQuery.js"></script>
+
+  <style>
+
+#q1{
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  transform: translate(-50%, -50%);
+}
+
+#q2{
+  width: 30px;
+  height: 30px;
+  background-color: green;
+  transform: translate(-50%, -50%);
+}
+
+#q3{
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+  transform: translate(-50%, -50%);
+}
+
+#q4{
+  width: 30px;
+  height: 30px;
+  background-color: yellow;
+  transform: translate(-50%, -50%);
+}
+
+#contenitore{
+  transform: translate(-50%, -50%); /*per centrarlo*/
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  border-radius: 50%;
+}
+
+.left{
+  top:25%;
+  left:25%;
+  position: absolute;
+  transition: 1s all;
+}
+
+.right{
+  top:25%;
+  left:50%;
+  position: absolute;
+  transition: 1s all;
+}
+
+.bottom_right{
+  top:75%;
+  left:50%;
+  position: absolute;
+  transition: 1s all;
+}
+
+.bottom_left{
+  top:75%;
+  left:25%;
+  position: absolute;
+  transition: 1s all;
+}
+
+.spinning{
+  transform: translate(-50%, -50%);
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from {transform: translate(-50%, -50%) rotate(0)}
+  to {transform: translate(-50%, -50%) rotate(360deg)}
+}
+
+  </style>
+</head>
+
+<body>
+
+<div id="contenitore">
+    <div id="q1" class="left"></div>
+    <div id="q2" class="right"></div>
+    <div id="q3" class="bottom_right"></div>
+    <div id="q4" class="bottom_left"></div>
+  </div>
+
+  <script>
+
+function scambia1e2() {
+  $("#q1").removeClass("left");
+  $("#q1").addClass("right");
+  $("#q2").removeClass("right");
+  $("#q2").addClass("left");
+}
+
+function spin(){
+  $("#contenitore").addClass("spinning");
+}
+
+function al_click(){
+  if($("#q1").hasClass("left"))
+  scambia1e2()
+  else if($("#q1").hasClass("right"))
+  spin()
+}
+
+function mouse(){
+  $("#contenitore").removeClass("spinning");
+}
+
+function hover(){
+  if($("#contenitore").hasClass("spinning"))
+  mouse()
+}
+
+$("#q1").click(al_click);
+$("#contenitore").hover(mouse);
+
+  </script>
+</body>
+</html>

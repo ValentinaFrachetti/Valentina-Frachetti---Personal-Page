@@ -1,0 +1,107 @@
+<!--Si realizzi una pagina in cui:
+1. al centro è presente un quadrato di colore a scelta, di lato 50px
+2. cliccando sul quadrato, questo si trasforma in un rettangolo, di altezza 100px e base 50px
+3. cliccando sul rettangolo questo si scompone in due parti uguali, quadrate, che ruotano su se stesse
+4. cliccando su uno dei due quadrati, questi "ricollassano" in un quadrato centrale, che continua a ruotare-->
+
+<html>
+<head>
+  <script src="jQuery.js"></script>
+<style>
+
+#q1{
+  top: 50%;
+  left: 50%;
+  background-color: #2c98f0;
+  position: absolute;
+}
+
+#q2{
+  position: absolute;
+}
+
+.centrato {
+  background-color: #2c98f0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.ricentrato {
+  background-color: #2c98f0;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 60%;
+  left: 50%;
+}
+
+.rettangolo{
+  background-color: #2c98f0;
+  position: absolute;
+  width: 50px;
+  height:100px;
+  top: 50%;
+  left: 50%;
+}
+
+.collasso{
+  position: absolute;
+  background-color: white;
+}
+
+.ruota {
+  background-color: #2c98f0;
+  animation: rotazione 2s infinite linear;
+  position: absolute;
+}
+
+@keyframes rotazione {
+  from{transform: rotate(0);}
+  to{transform: rotate(360deg);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="q1" class="centrato"></div>
+<div id="q2" class="centrato"></div>
+
+  <script>
+
+  function diventa_rettangolo() {
+    $("#q2").removeClass("centrato");
+    $("#q2").addClass("rettangolo");
+  }
+
+  function scomponi() {
+    $("#q2").removeClass("rettangolo");
+    $("#q2").addClass("ricentrato");
+    $("#q2").addClass("ruota");
+    $("#q1").addClass("ruota");
+  }
+
+  function collasso(){
+    $("#q2").removeClass("ruota");
+    $("#q2").addClass("collasso");
+  }
+
+function quando_click() {
+  if($("#q2").hasClass("centrato"))
+  diventa_rettangolo()
+  else if($("#q2").hasClass("rettangolo"))
+  scomponi()
+  else if($("#q2").hasClass("ruota"))
+  collasso()
+}
+
+$("#q2").on("click", quando_click);
+$("#q1").on("click", quando_click);
+
+  </script>
+</body>
+</html>

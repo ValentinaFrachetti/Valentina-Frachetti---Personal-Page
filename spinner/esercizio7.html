@@ -1,0 +1,126 @@
+<!--Si realizzi una pagina in cui:
+
+1. Ai quattro angoli sono presenti quattro quadrati, di colori diversi arbitrari(1pt)
+2. Cliccando su uno qualsiasi dei quadrati, questo si porta al centro esatto dello schermo (1pt)
+3. Cliccando su un quadrato, dopo che si è portato al centro dello schermo, questo comincia ad oscillare orizzontalmente con ampiezza pari a metà dello schermo, e frequenza arbitraria, compresa tra 1 secondo e 5 secondi. (2pt)
+4. Cliccando su un quadrato oscillante, questo si riporta nella posizione originaria, in un angolo dello schermo (2pt)
+-->
+
+<html>
+<head>
+  <script src="jQuery.js"></script>
+  <style>
+
+#q1 {
+  background-color: red;
+  position: absolute;
+}
+
+.top_left{
+  top:0%;
+  left:0%;
+}
+
+#q2 {
+  background-color: blue;
+  position: absolute;
+}
+
+.top_right{
+  top:0%;
+  right:0%;
+}
+
+#q3 {
+  background-color: yellow;
+  position: absolute;
+}
+
+.bottom_right{
+  bottom:0%;
+  right:0%;
+}
+
+#q1 {
+  background-color: green;
+  position: absolute;
+}
+
+.bottom_left{
+  bottom:0%;
+  left:0%;
+}
+
+.quadrato{
+  width: 50px;
+  height: 50px;
+}
+
+.centro{
+  top:50%;
+  left:50%;
+}
+
+.oscilla{
+  animation-duration: 2s;
+  animation-name: oscilla;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes oscilla {
+  from {
+    top:50%;
+    margin-left:25%;
+  }
+
+  to {
+    top:50%;
+    margin-left:75%;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div id="q1" class="quadrato top_left"></div>
+  <div id="q2" class="quadrato top_right"></div>
+  <div id="q3" class="quadrato bottom_right"></div>
+  <div id="q4" class="quadrato bottom_left"></div>
+
+  <script>
+
+  function centra() {
+    $("#q1").removeClass("top_left");
+    $("#q1").addClass("centro");
+  }
+
+  function oscilla() {
+    $("#q1").removeClass("centro");
+    $("#q1").addClass("oscilla");
+  }
+
+  function inizio() {
+  $("#q1").removeClass("oscilla");
+  $("#q1").addClass("top_left");
+}
+
+  function quando_click() {
+    if($("#q1").hasClass("top_left"))
+    centra()
+    else if($("#q1").hasClass("centro"))
+    oscilla()
+    else if($("#q1").hasClass("oscilla"))
+    inizio()
+  }
+
+  $("#q4").on("click", quando_click);
+  $("#q3").on("click", quando_click);
+  $("#q2").on("click", quando_click);
+  $("#q1").on("click", quando_click);
+  </script>
+
+</body>
+</html>

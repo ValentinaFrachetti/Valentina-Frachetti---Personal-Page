@@ -1,0 +1,112 @@
+<!--1. Sia presente, al centro dello schermo, un quadrato, di colore rosso, e lato pari a ⅓ dell’altezza dello schermo
+2. Cliccando all’interno del quadrato, questo ruota di 225 (180+45) gradi, in senso antiorario, con una transizione che dura mezzo secondo
+3. Cliccando di nuovo all’interno del quadrato, compare (si scelga un effetto di apparizione a piacere) un altro quadrato, all’interno del primo, ma di lato pari alla metà (il quadrato più piccolo è “centrato” in quello grande)
+4. Ricliccando all’interno del quadrato, i due quadrati cominciano a ruotare, quello grande in senso orario, quello piccolo interno in senso antiorario, facendo un giro al secondo
+-->
+
+<html>
+<head>
+  <script src="jQuery.js"></script>
+
+  <style>
+
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .q {
+    background-color: red;
+    height: 33vh;
+    width: 33vh;
+  }
+
+  .qino-off {
+    height: 0vh;
+    width: 0vh;
+  }
+
+  .qino-on {
+    background-color: yellow;
+    height: 16vh;
+    width: 16vh;
+  }
+
+  .rotate {
+    animation: rotation 0.5s forwards;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(-225deg);
+    }
+  }
+
+  .rotate-orario {
+    animation: orario 1s infinite;
+  }
+
+  @keyframes orario {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+  }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  .rotate-antiorario {
+    animation: antiorario 1s infinite;
+  }
+
+  @keyframes antiorario {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+  }
+    to {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="quadrato" class="q center"></div>
+  <div id="quadratino" class="qino-off center"></div>
+
+  <script>
+
+  function ruota_quadrato_rosso() {
+    $("#quadrato").addClass("rotate");
+  }
+
+  function disegna_quadrato_giallo() {
+    $("#quadratino").addClass("qino-on");
+  }
+
+  function ruota_tutto() {
+    $("#quadrato").addClass("rotate-orario");
+    $("#quadratino").addClass("rotate-antiorario");
+  }
+
+  function al_click() {
+    if($("#quadratino").hasClass("qino-on"))
+      ruota_tutto();
+    else if($("#quadrato").hasClass("rotate"))
+      disegna_quadrato_giallo();
+    else
+      ruota_quadrato_rosso();
+  }
+
+  $("#quadrato").click(al_click);
+
+  </script>
+</body>
+</html>

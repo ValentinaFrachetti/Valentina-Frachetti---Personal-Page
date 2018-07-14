@@ -1,0 +1,113 @@
+<!--1. Al centro è presente un quadrato verde (1pt)
+2. Cliccando sul quadrato verde, questo esce dal lato destro dello schermo, ed entra un cerchio blu (1pt)
+3. Cliccando sul cerchio blu, questo si trasforma in quadrato, e cambia colore (diventa rosso) 1pt
+4. Cliccando sul quadrato rosso, questo comincia a girare, al ritmo di 1 giro/secondo (2pt)
+5. Cliccando di nuovo sul quadrato rosso, questo esce dallo schermo, e ricompare il quadrato verde  (2pt)
+-->
+
+<html>
+<head>
+  <script src="jQuery.js"></script>
+  <style>
+
+.q{
+  transition: 1s all;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+}
+
+#quadrato{
+  height: 50px;
+  width: 50px;
+  background-color: green;
+}
+
+.c{
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  border-radius: 50%;
+}
+
+.centro{
+  top:50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  transition: 1s all;
+}
+
+.fuori{
+  top:50%;
+  left:300%;
+  position: absolute;
+  transform: translate(0%,-50%);
+  transition: 1s all;
+}
+
+.rotazione{
+  animation: rotazione 1s infinite linear;
+}
+
+@keyframes rotazione {
+  from{
+    transform: translate(-50%,-50%) rotate(0deg);
+  }
+  to{
+    transform: translate(-50%,-50%) rotate(360deg);
+  }
+}
+
+  </style>
+
+</head>
+
+<body>
+
+<div id="quadrato" class="centro"></div>
+<div id="cerchio" class="fuori c stop"></div>
+
+  <script>
+
+function scambio(){
+  $("#quadrato").removeClass("centro");
+  $("#quadrato").addClass("fuori");
+  $("#cerchio").removeClass("fuori");
+  $("#cerchio").addClass("centro");
+}
+
+function quadrato(){
+  $("#cerchio").removeClass("c");
+  $("#cerchio").addClass("q");
+}
+
+function ruota(){
+  $("#cerchio").removeClass("stop");
+  $("#cerchio").addClass("rotazione");
+}
+
+function scambio2(){
+  $("#cerchio").removeClass("centro");
+  $("#cerchio").addClass("fuori");
+  $("#quadrato").removeClass("fuori");
+  $("#quadrato").addClass("centro");
+}
+
+function al_click(){
+  if($("#quadrato").hasClass("centro"))
+  scambio()
+  else if($("#cerchio").hasClass("c"))
+  quadrato()
+  else if($("#cerchio").hasClass("stop"))
+  ruota()
+  else if($("#cerchio").hasClass("rotazione"))
+  scambio2()
+}
+
+$("#quadrato").on("click", al_click);
+$("#cerchio").on("click", al_click);
+
+  </script>
+</body>
+</html>

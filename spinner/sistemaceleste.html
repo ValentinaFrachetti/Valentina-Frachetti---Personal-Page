@@ -1,0 +1,109 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery.min.js"></script>
+    <style>
+        #stella {
+            background-color: yellow;
+            width: 50px; height: 50px;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+        #blu {
+            background-color: blue;
+            width: 40px; height: 40px;
+            position: absolute;
+            top:50%; right: 0;
+            border-radius: 50%;
+        }
+
+        #rosso{
+            background-color: red;
+            width: 40px; height: 40px;
+            position: absolute;
+            top:50%; right: 0;
+            border-radius: 50%;
+        }
+
+        @keyframes spin {
+            from {transform: translate(-50%, -50%) rotate(0)}
+            to {transform: translate(-50%, -50%) rotate(360deg)}
+        }
+
+        @keyframes spin2 {
+            from {transform: translate(-50%, -50%) rotate(360deg)}
+            to {transform: translate(-50%, -50%) rotate(0)}
+        }
+
+        #quadratoceleste {
+            transform: translate(-50%, -50%);
+            height: 400px;
+            width: 400px;
+            position: absolute;
+            top:50%;
+            left:50%;
+        }
+
+        #quadratoceleste2 {
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: 500px;
+            position: absolute;
+            top:50%;
+            left:50%;
+        }
+
+        #quadratoceleste.spinning {
+            animation: spin 10s infinite linear;
+        }
+
+        #quadratoceleste.spinning.contrario {
+            animation: spin2 10s infinite linear;
+        }
+
+
+        #quadratoceleste2.spinning {
+            animation: spin2 5s infinite linear;
+        }
+        #quadratoceleste2.spinning.contrario {
+            animation: spin 5s infinite linear;
+        }
+    </style>
+</head>
+<body>
+    <div id="quadratoceleste" class="spinning">
+        <div id="blu"></div>
+    </div>
+    <div id="quadratoceleste2" class="spinning">
+        <div id="rosso"></div>
+    </div>
+    <div id="stella"></div>
+    <script>
+
+    var stato=0;
+
+
+    $("#stella").on("click", function() {
+
+        if(stato == 0) {
+            // devo andare nello stato 1, in cui il pianeta blu gira
+            $("#quadratoceleste").addClass("spinning");
+            stato = 1;
+        } else if(stato == 1) {
+            $("#quadratoceleste2").addClass("spinning");
+            stato = 2;
+        } else if(stato == 2) {
+            $("#quadratoceleste").addClass("contrario");
+            $("#quadratoceleste2").addClass("contrario");
+            stato = 3;
+
+        }
+
+    })
+
+    </script>
+
+
+</body></html>
